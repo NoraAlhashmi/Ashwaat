@@ -7,23 +7,35 @@
     android:background="@drawable/background"
     android:orientation="vertical">
 
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
     <android.support.v7.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/logo"/>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_centerInParent="true"
+
+
+    <ImageButton
+        android:id="@+id/reset"
+        android:text="reset"
+        android:src="@drawable/reset"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:gravity="center">
 
-
         <io.netopen.hotbitmapgg.library.view.RingProgressBar
-            android:id="@+id/progress_bar_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/progress_bar"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_centerInParent="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="10dp"
@@ -35,28 +47,40 @@
             app:textColor="@color/colorPrimary"
             app:textIsShow="false"
             android:progress="0"
-
             />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/progress_bar"
+            android:layout_alignTop="@+id/progress_bar"
+            android:layout_alignRight="@+id/progress_bar"
+            android:layout_alignBottom="@+id/progress_bar"
+            android:layout_margin="1dp"
+            android:gravity="center"
             android:text="1"
-            android:textSize="25dp"
-            />
+            android:textSize="100dp"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/avenir"/>
+
+        <TextView
+            android:id="@+id/extra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/progress_bar"
+            android:layout_alignTop="@+id/progress_bar"
+            android:layout_alignRight="@+id/progress_bar"
+            android:layout_alignBottom="@+id/progress_bar"
+            android:layout_margin="1dp"
+            android:gravity="bottom|right"
+            android:textSize="40dp"
+            android:textColor="@android:color/darker_gray"
+            android:fontFamily="@font/avenir"/>
+
+    </RelativeLayout>
 
 
-    </LinearLayout>
 
-
-    <ImageButton
-        android:id="@+id/reset"
-        android:text="reset"
-        android:src="@drawable/reset"
-        android:background="@android:color/transparent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
 
 </android.support.v7.widget.LinearLayoutCompat>

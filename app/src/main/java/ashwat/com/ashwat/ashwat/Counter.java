@@ -15,9 +15,9 @@ public class Counter extends AppCompatActivity {
 
     private ImageButton reset;
     RingProgressBar ringProgressBar;
-    TextView textView;
+    TextView result,extra;
     int progress = 0;
-    String shotnum ="";
+    String shotnum="";
     int shoot=0;
 
     Handler myhandeler = new Handler(){
@@ -44,25 +44,28 @@ public class Counter extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
+
         final SharedPreferencesManager prefs = SharedPreferencesManager.getInstance(getApplicationContext());
         shoot = prefs.getResult();
-        ringProgressBar =(RingProgressBar) findViewById(R.id.progress_bar_2);
+
+        ringProgressBar = findViewById(R.id.progress_bar);
         ringProgressBar.setProgress(1);
+
         reset = findViewById(R.id.reset);
-        textView = (TextView)  findViewById(R.id.textView);
-
-
+        result = findViewById(R.id.result);
+        extra = findViewById(R.id.extra);
 
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 prefs.end();
                 Intent intent = new Intent(Counter.this,Register.class);
+                startActivity(intent);
 
             }
         });
 
-        new Thread(new Runnable() {
+    /*    new Thread(new Runnable() {
             @Override
             public void run() {
                 for (int i=0;i<7;i++){
@@ -73,7 +76,7 @@ public class Counter extends AppCompatActivity {
 
                         shotnum = ""+shoot;
                         shoot++;
-                        textView.setText(shotnum);
+                        result.setText(shotnum);
                     }catch(InterruptedException e){
                         e.printStackTrace();
 
@@ -81,7 +84,7 @@ public class Counter extends AppCompatActivity {
 
                 }
             }
-        }).start();
+        }).start();*/
     }
 
 
